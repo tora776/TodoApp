@@ -47,4 +47,13 @@ dependencies {
     // optional - RxJava3 support for Room
     implementation(libs.room.runtime)
 
+    val room_version = "2.6.1"
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    implementation("androidx.room:room-guava:$room_version")
+    // optional - Test helpers
+    testImplementation("androidx.room:room-testing:$room_version")
+    // optional - Paging 3 Integration
+    implementation("androidx.room:room-paging:$room_version")
+
+
 }

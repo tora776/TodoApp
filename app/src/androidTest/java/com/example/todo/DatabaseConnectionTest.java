@@ -9,6 +9,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -28,7 +29,7 @@ public class DatabaseConnectionTest {
     private AppDatabase db;
 
     @Before
-    public void SetUp(){
+    public void setUp(){
         Context context = ApplicationProvider.getApplicationContext();
         db = Room.inMemoryDatabaseBuilder(context, AppDatabase.class).build();
         taskDao = db.taskDao();
@@ -36,7 +37,9 @@ public class DatabaseConnectionTest {
 
     @After
     public void closeDb() throws IOException {
-        db.close();
+        if (db != null) {
+            db.close();
+        }
     }
 
     @Test
