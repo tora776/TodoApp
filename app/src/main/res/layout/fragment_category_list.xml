@@ -9,6 +9,21 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Category List Fragment" />
+        android:text="Category List Fragment"
+        android:layout_gravity="center"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/categoryToTask_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ButtonToTask"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        />
 
 </FrameLayout>
