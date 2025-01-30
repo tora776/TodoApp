@@ -3,6 +3,7 @@ package com.example.todo.ui;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,12 +28,21 @@ public class CategoryListFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
-        // ボタンを取得
+
+        // ページ遷移ボタンを取得
         Button button = view.findViewById(R.id.categoryToTask_Button);
         // fragment_task_list.xmlへ遷移
         button.setOnClickListener(v ->
                 //画面遷移
                 navigate(R.id.action_categoryListFragment_to_taskListFragment));
+
+        // Add Categoryボタンを取得
+        Button buttonAddCategory = view.findViewById(R.id.addCategory_Button);
+        // dialogを表示
+        buttonAddCategory.setOnClickListener(v -> {
+            DialogFragment dialog = new CategoryDialog();
+            dialog.show(getParentFragmentManager(), "CategoryDialog");
+                });
     }
 
 }
