@@ -3,10 +3,6 @@ package com.example.todo.ui;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +11,7 @@ import android.widget.Button;
 
 import com.example.todo.R;
 
-public class CategoryListFragment extends Fragment {
+public class CategoryListFragment extends BaseFragment {
 
     public CategoryListFragment() {
         // Required empty public constructor
@@ -31,14 +27,11 @@ public class CategoryListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
-
+        // ボタンを取得
         Button button = view.findViewById(R.id.categoryToTask_Button);
-        button.setOnClickListener(v -> {
-            // NavControllerを取得
-            // NavController navController = Navigation.findNavController(view);
-            NavController navController = NavHostFragment.findNavController(CategoryListFragment.this);
+        // fragment_task_list.xmlへ遷移
+        button.setOnClickListener(v ->
             //画面遷移
-            navController.navigate(R.id.action_categoryListFragment_to_taskListFragment);
-        });
+            navigate(R.id.action_categoryListFragment_to_taskListFragment));
     }
 }
