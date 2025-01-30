@@ -31,7 +31,8 @@ public class CategoryListFragment extends BaseFragment {
         Button button = view.findViewById(R.id.categoryToTask_Button);
         // fragment_task_list.xmlへ遷移
         button.setOnClickListener(v ->
-            //画面遷移
-            navigate(R.id.action_categoryListFragment_to_taskListFragment));
+                //画面遷移
+                navigate(R.id.action_categoryListFragment_to_taskListFragment));
     }
+
 }

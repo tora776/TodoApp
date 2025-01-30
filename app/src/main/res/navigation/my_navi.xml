@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_category_list" >
         <action
             android:id="@+id/action_categoryListFragment_to_taskListFragment"
-            app:destination="@id/taskListFragment" />
+            app:destination="@id/taskListFragment"
+            app:popUpTo="@id/categoryListFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/taskListFragment"
@@ -22,5 +24,7 @@
         <action
             android:id="@+id/action_taskListFragment_to_categoryListFragment"
             app:destination="@id/categoryListFragment"
+            app:popUpTo="@id/taskListFragment"
+            app:popUpToInclusive="true"
             />
 </navigation>
