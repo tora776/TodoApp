@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.todo.R;
+import com.example.todo.db.Category;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class CategoryListFragment extends BaseFragment {
 
@@ -37,12 +41,21 @@ public class CategoryListFragment extends BaseFragment {
                 navigate(R.id.action_categoryListFragment_to_taskListFragment));
 
         // Add Categoryボタンを取得
-        Button buttonAddCategory = view.findViewById(R.id.addCategory_Button);
+        FloatingActionButton buttonAddCategory = view.findViewById(R.id.addCategory_Button);
         // dialogを表示
         buttonAddCategory.setOnClickListener(v -> {
             DialogFragment dialog = new CategoryDialog();
             dialog.show(getParentFragmentManager(), "CategoryDialog");
                 });
+
+        // RecyclerViewを取得
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
+        final CategoryListAdapter adapter = new CategoryListAdapter(new CategoryListAdapter.CategoryDiff());
+        recyclerView.setAdapter(adapter);
+        // TODO:動作確認
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+
+
     }
 
 }
