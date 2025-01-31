@@ -21,7 +21,7 @@ public class CategoryDialog extends BaseDialog{
                 .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int id){
-                        // start the game!
+                        // TODO: カテゴリーをDBに登録する
                     }
                 })
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener(){
