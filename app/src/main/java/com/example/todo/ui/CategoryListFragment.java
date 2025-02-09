@@ -66,6 +66,7 @@ public class CategoryListFragment extends BaseFragment {
         // TODO:動作確認
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
+        mCategoryViewModel = new ViewModelProvider(this).get(CategoryViewModel.class);
         mCategoryViewModel.getCategories().observe(getViewLifecycleOwner(), categories -> {
             // Update the cached copy of the words in the adapter
             adapter.submitList(categories);
