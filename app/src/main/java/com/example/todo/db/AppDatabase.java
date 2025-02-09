@@ -47,6 +47,7 @@ public abstract class AppDatabase extends RoomDatabase {
                 // 初期化。アプリを再起動してもデータを保持したい場合は削除すること
                 CategoryDao dao = sInstance.categoryDao();
 
+
                 // テストデータを挿入
                 Category category = new Category();
                 category.setCategoryId(1);
