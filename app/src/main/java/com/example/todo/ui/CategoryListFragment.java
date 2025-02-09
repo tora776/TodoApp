@@ -1,9 +1,14 @@
 package com.example.todo.ui;
 
+import static android.app.Activity.RESULT_OK;
+
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,12 +16,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.todo.R;
 import com.example.todo.db.Category;
+import com.example.todo.viewmodel.CategoryViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class CategoryListFragment extends BaseFragment {
+
+    private CategoryViewModel mCategoryViewModel;
+
+    public static final int NEW_CATEGORY_ACTIVITY_REQUEST_CODE = 1;
 
     public CategoryListFragment() {
         // Required empty public constructor
@@ -55,7 +66,10 @@ public class CategoryListFragment extends BaseFragment {
         // TODO:動作確認
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
+        mCategoryViewModel.getCategories().observe(getViewLifecycleOwner(), categories -> {
+            // Update the cached copy of the words in the adapter
+            adapter.submitList(categories);
+            });
 
     }
-
 }

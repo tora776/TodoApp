@@ -20,7 +20,9 @@ public class CategoryViewModel extends AndroidViewModel {
         mCategories = mRepository.getCategories();
     }
     // キャッシュされたカテゴリーのリストを返す。
-    LiveData<List<Category>> getCategories(){ return mCategories; }
+    public LiveData<List<Category>> getCategories(){ return mCategories; }
     // insertリポジトリのメソッドを呼び出すラッパーメソッド。insert()UIから実装がカプセル化される。
     public void insert(Category category){ mRepository.insert(category); }
+
+
 }

@@ -5,4 +5,5 @@
     <string name="category">カテゴリー</string>
     <string name="yes">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="empty_not_saved">Category not saved because it is empty.</string>
 </resources>

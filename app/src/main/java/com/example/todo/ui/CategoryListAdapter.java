@@ -1,5 +1,6 @@
 package com.example.todo.ui;
 
+import android.content.Intent;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -14,8 +15,9 @@ public class CategoryListAdapter extends ListAdapter<Category, CategoryViewHolde
         super(diffCallback);
     }
 
+    @NonNull
     @Override
-    public CategoryViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
         return CategoryViewHolder.create(parent);
     }
 
@@ -35,8 +37,6 @@ public class CategoryListAdapter extends ListAdapter<Category, CategoryViewHolde
         public boolean areContentsTheSame(@NonNull Category oldItem, @NonNull Category newItem){
             return oldItem.getCategoryText().equals(newItem.getCategoryText());
         }
-
-
     }
 
 }
